@@ -1,0 +1,13 @@
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\bin\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.exe
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\bin\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.deps.json
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\bin\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.runtimeconfig.json
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\bin\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.runtimeconfig.dev.json
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\bin\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.dll
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\bin\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.pdb
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.csproj.CoreCompileInputs.cache
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.AssemblyInfoInputs.cache
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.AssemblyInfo.cs
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.dll
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.pdb
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.genruntimeconfig.cache
+D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.csprojAssemblyReference.cache
