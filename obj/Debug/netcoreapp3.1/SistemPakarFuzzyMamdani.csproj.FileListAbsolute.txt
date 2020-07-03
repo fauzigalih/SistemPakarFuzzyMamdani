@@ -10,4 +10,3 @@ D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPa
 D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.dll
 D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.pdb
 D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.genruntimeconfig.cache
-D:\All Programs\C Sharp\SistemPakarFuzzyMamdani\obj\Debug\netcoreapp3.1\SistemPakarFuzzyMamdani.csprojAssemblyReference.cache
