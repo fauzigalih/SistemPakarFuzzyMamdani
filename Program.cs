@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 namespace SistemPakarFuzzyMamdani
 {
-    class Program
+    class Program : Fuzzy
     {
         static bool _password = false;
         static bool _error = false;
         static string messageError;
 
-        static Fuzzy fuzzy = new Fuzzy();
         static Score score = new Score();
         static Nurse nurse = new Nurse();
         static Setting set = new Setting();
@@ -181,43 +180,43 @@ namespace SistemPakarFuzzyMamdani
         {
             Console.WriteLine();
             Console.WriteLine($"Derajat Keanggotaan: \n" +
-                $"Tes Tulis Kurang: {fuzzy.writeLowLevel} \n" +
-                $"Tes Tulis Cukup: {fuzzy.writeMidLevel} \n" +
-                $"Tes Tulis Baik: {fuzzy.writeHighLevel} \n" +
-                $"Tes Praktek Kurang: {fuzzy.practiceLowLevel} \n" +
-                $"Tes Praktek Cukup: {fuzzy.practiceMidLevel} \n" +
-                $"Tes Praktek Baik: {fuzzy.practiceHighLevel}");
+                $"Tes Tulis Kurang: {writeLowLevel} \n" +
+                $"Tes Tulis Cukup: {writeMidLevel} \n" +
+                $"Tes Tulis Baik: {writeHighLevel} \n" +
+                $"Tes Praktek Kurang: {practiceLowLevel} \n" +
+                $"Tes Praktek Cukup: {practiceMidLevel} \n" +
+                $"Tes Praktek Baik: {practiceHighLevel}");
         }
 
         static void Conjunction()
         {
             Console.WriteLine();
             Console.WriteLine($"Konjungsi: \n" +
-                $"Tes Tulis Kurang: {fuzzy.writeLowLevel} AND Tes Praktek Kurang: {fuzzy.practiceLowLevel} \n" +
-                $"Tes Tulis Kurang: {fuzzy.writeLowLevel} AND Tes Praktek Cukup: {fuzzy.practiceMidLevel} \n" +
-                $"Tes Tulis Cukup: {fuzzy.writeMidLevel} AND Tes Praktek Kurang: {fuzzy.practiceLowLevel} \n" +
-                $"Tes Tulis Cukup: {fuzzy.writeMidLevel} AND Tes Praktek Cukup: {fuzzy.practiceMidLevel}");
+                $"Tes Tulis Kurang: {writeLowLevel} AND Tes Praktek Kurang: {practiceLowLevel} \n" +
+                $"Tes Tulis Kurang: {writeLowLevel} AND Tes Praktek Cukup: {practiceMidLevel} \n" +
+                $"Tes Tulis Cukup: {writeMidLevel} AND Tes Praktek Kurang: {practiceLowLevel} \n" +
+                $"Tes Tulis Cukup: {writeMidLevel} AND Tes Praktek Cukup: {practiceMidLevel}");
         }
 
         static void Disjunction()
         {
             Console.WriteLine();
             Console.WriteLine($"Disjungsi: \n" +
-                $"Tes Tulis Kurang: {fuzzy.disjunction1} OR Tes Praktek Kurang: {fuzzy.disjunction3} THEN Tidak Lulus {fuzzy.graduateNot} \n" +
-                $"Tes Tulis Cukup: {fuzzy.disjunction2} OR Tes Praktek Cukup: {fuzzy.disjunction4} THEN Lulus {fuzzy.graduateYes}");
+                $"Tes Tulis Kurang: {disjunction1} OR Tes Praktek Kurang: {disjunction3} THEN Tidak Lulus {graduateNot} \n" +
+                $"Tes Tulis Cukup: {disjunction2} OR Tes Praktek Cukup: {disjunction4} THEN Lulus {graduateYes}");
         }
 
         static void Defuzzyfication()
         {
             Console.WriteLine();
             Console.WriteLine($"Defuzzyfikasi: \n" +
-                $"Defuzzyfikasi: {fuzzy.defuzzyfication}");
+                $"Defuzzyfikasi: {defuzzyfication}");
         }
 
         static void ResultTest()
         {
             Console.WriteLine();
-            Console.WriteLine($"Hasil dari perhitungan adalah {fuzzy.graduateFinal}");
+            Console.WriteLine($"Hasil dari perhitungan adalah {graduateFinal}");
         }
     }
 }
