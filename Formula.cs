@@ -122,7 +122,7 @@ namespace SistemPakarFuzzyMamdani
         {
             string x = "Not Found!";
             if (defuzzyfication <= graduateLowMid) x = "Tidak Lulus";
-            else x = "Lulus";
+            else if (defuzzyfication > graduateLowMid) x = "Lulus";
             return x.ToUpper();
         }
     }
