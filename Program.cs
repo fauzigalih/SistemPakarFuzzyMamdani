@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SistemPakarFuzzyMamdani
 {
@@ -15,17 +16,49 @@ namespace SistemPakarFuzzyMamdani
 
         static List<Nurse> nurseList = new List<Nurse>();
 
-        static void Main()
+        static void Main(string[] args)
         {
-            ConfirmPassword();
+            Home();
         }
 
         static void Home()
+        {
+            ConfirmPassword();
+            Welcome();
+            Console.WriteLine("Menu Utama : \n" +
+                "1. Tes Sertifikasi Perawat \n" +
+                "2. Data Yang Tersimpan \n" +
+                "3. Keluar \n");
+            Console.Write("Jawab: ");
+            string answer = Console.ReadLine();
+            switch (answer)
+            {
+                case "1":
+                    Console.Clear();
+                    TestSertification();
+                    break;
+                case "2":
+                    Console.Clear();
+                    DataSave();
+                    break;
+                case "3":
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Tidak ada menu tersedia yang kamu pilih");
+                    Console.WriteLine();
+                    Home();
+                    break;
+            }
+        }
+
+        static void TestSertification()
         {
             Welcome();
             InputData();
             InputScore();
             ConfirmProcess();
+            ConfirmSave();
         }
 
         static void ConfirmPassword()
@@ -38,7 +71,6 @@ namespace SistemPakarFuzzyMamdani
                 {
                     _password = true;
                     Console.Clear();
-                    Home();
                 }
                 else
                 {
@@ -54,8 +86,47 @@ namespace SistemPakarFuzzyMamdani
             Console.Write("Apakah data diatas sudah benar dan ingin melanjutkan proses?(y/n) : ");
             string answer = Console.ReadLine().ToLower();
             if (answer == "y" || answer == "yes" || answer == "ya") Calculation();
-            else if (answer == "n" || answer == "no") Home();
-            else Console.WriteLine("Tidak ada pilihan yg tersedia.");
+            else if (answer == "n" || answer == "no")
+            {
+                Console.Clear();
+                Home();
+            }
+            else
+            {
+                Console.WriteLine("Tidak ada pilihan yg tersedia. \n");
+                ConfirmProcess();
+            }
+        }
+
+        static void ConfirmSave()
+        {
+            Console.WriteLine();
+            Console.Write("Apakah anda ingin menyimpan data ini?(y/n) : ");
+            string answer = Console.ReadLine();
+            if (answer == "y" || answer == "yes" || answer == "ya")
+            {
+                nurseList.Add(new Nurse()
+                {
+                    NurseNIP = nurse.NurseNIP,
+                    NurseName = nurse.NurseName,
+                    NurseAge = nurse.NurseAge,
+                    ScoreFinal = defuzzyfication,
+                    Note = graduateFinal
+                });
+                Console.Clear();
+                Console.WriteLine("Data anda telah disimpan. \n");
+                Home();
+            }
+            else if (answer == "n" || answer == "no")
+            {
+                Console.Clear();
+                Home();
+            }
+            else
+            {
+                Console.WriteLine("Tidak ada pilihan yg tersedia. \n");
+                ConfirmSave();
+            }
         }
 
         static void Welcome()
@@ -169,6 +240,7 @@ namespace SistemPakarFuzzyMamdani
             Welcome();
             _InputData(false);
             _InputScore(false);
+            RunFuzzy(score.TestWrite, score.TestPractice);
             Level();
             Conjunction();
             Disjunction();
@@ -180,12 +252,9 @@ namespace SistemPakarFuzzyMamdani
         {
             Console.WriteLine();
             Console.WriteLine($"Derajat Keanggotaan: \n" +
-                $"Tes Tulis Kurang: {writeLowLevel} \n" +
-                $"Tes Tulis Cukup: {writeMidLevel} \n" +
-                $"Tes Tulis Baik: {writeHighLevel} \n" +
-                $"Tes Praktek Kurang: {practiceLowLevel} \n" +
-                $"Tes Praktek Cukup: {practiceMidLevel} \n" +
-                $"Tes Praktek Baik: {practiceHighLevel}");
+                $"Tes Tulis Kurang: {writeLowLevel} \t Tes Praktek Kurang: {practiceLowLevel} \n" +
+                $"Tes Tulis Cukup: {writeMidLevel} \t Tes Praktek Cukup: {practiceMidLevel} \n" +
+                $"Tes Tulis Baik: {writeHighLevel} \t Tes Praktek Baik: {practiceHighLevel}");
         }
 
         static void Conjunction()
@@ -210,13 +279,36 @@ namespace SistemPakarFuzzyMamdani
         {
             Console.WriteLine();
             Console.WriteLine($"Defuzzyfikasi: \n" +
-                $"Defuzzyfikasi: {defuzzyfication}");
+                $"Total Penilaian: {defuzzyfication}");
         }
 
         static void ResultTest()
         {
             Console.WriteLine();
             Console.WriteLine($"Hasil dari perhitungan adalah {graduateFinal}");
+        }
+
+        static void DataSave()
+        {
+            var dataList = from nurse in nurseList
+                           orderby nurse.NurseName ascending
+                           select nurse;
+            if (dataList.Count() == 0)
+            {
+                Console.WriteLine("Tidak ada data yang tersimpan. \n");
+                Home();
+            }
+            else
+            {
+                Console.WriteLine("Berikut data yang telah tersimpan: ");
+                foreach (var data in dataList)
+                {
+                    Console.WriteLine($"- NIP:{data.NurseNIP}, Nama:{data.NurseName}, Umur:{data.NurseAge}, " +
+                        $"Nilai:{data.ScoreFinal}, Keterangan:{data.Note}");
+                }
+                Console.WriteLine();
+                Home();
+            }
         }
     }
 }
