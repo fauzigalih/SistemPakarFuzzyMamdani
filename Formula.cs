@@ -31,15 +31,16 @@ namespace SistemPakarFuzzyMamdani
             if (write <= writeLow || write >= writeHigh) x = 0;
             else if (write >= writeLow && write <= writeLowMid) x = (write - writeLow) / (writeLowMid - writeLow);
             else if (write >= writeHighMid && write <= writeHigh) x = (writeHigh - write) / (writeHigh - writeHighMid);
+            else x = 1;
             return x;
         }
 
         public double WriteHigh(double write)
         {
             double x = -1;
-            if (write <= writeHighMid) x = 1;
+            if (write <= writeHighMid) x = 0;
             else if (write >= writeHighMid && write <= writeHigh) x = (write - writeHighMid) / (writeHigh - writeHighMid);
-            else if (write >= writeHigh) x = 0;
+            else if (write >= writeHigh) x = 1;
             return x;
         }
 
@@ -58,6 +59,7 @@ namespace SistemPakarFuzzyMamdani
             if (practice <= practiceLow || practice >= practiceHigh) x = 0;
             else if (practice >= practiceLow && practice <= practiceLowMid) x = (practice - practiceLow) / (practiceLowMid - practiceLow);
             else if (practice >= practiceHighMid && practice <= practiceHigh) x = (practiceHigh - practice) / (practiceHigh - practiceHighMid);
+            else x = 1;
             return x;
         }
 
