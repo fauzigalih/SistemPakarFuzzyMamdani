@@ -123,8 +123,8 @@ namespace SistemPakarFuzzyMamdani
         public string GraduateFinal(double defuzzyfication, double graduateLowMid)
         {
             string x = "Not Found!";
-            if (defuzzyfication <= graduateLowMid) x = "Tidak Lulus";
-            else if (defuzzyfication > graduateLowMid) x = "Lulus";
+            if (defuzzyfication <= graduateLowMid) x = set.graduateNot;
+            else if (defuzzyfication > graduateLowMid) x = set.graduateYes;
             return x.ToUpper();
         }
     }
