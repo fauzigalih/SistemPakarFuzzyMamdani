@@ -23,5 +23,8 @@ namespace SistemPakarFuzzyMamdani
         public double graduateHighMid = 60;
         public double graduateLowMid = 65;
         public double graduateHigh = 80;
+
+        public string graduateNot = "Tidak Lulus";
+        public string graduateYes = "Lulus";
     }
 }
