@@ -10,11 +10,11 @@ namespace SistemPakarFuzzyMamdani
         static bool _error = false;
         static string messageError;
 
-        static Score score = new Score();
-        static Nurse nurse = new Nurse();
-        static Setting set = new Setting();
+        static readonly Score score = new Score();
+        static readonly Nurse nurse = new Nurse();
+        static readonly Setting set = new Setting();
 
-        static List<Nurse> nurseList = new List<Nurse>();
+        static readonly List<Nurse> nurseList = new List<Nurse>();
 
         static void Main(string[] args)
         {
