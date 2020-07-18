@@ -4,17 +4,29 @@ namespace SistemPakarFuzzyMamdani
 {
     class Formula
     {
-        static Setting set = new Setting();
+        static readonly Setting set = new Setting();
 
-        public double writeLow = set.writeLow;
-        public double writeLowMid = set.writeLowMid;
-        public double writeHighMid = set.writeHighMid;
-        public double writeHigh = set.writeHigh;
+        public readonly double writeLow;
+        public readonly double writeLowMid;
+        public readonly double writeHighMid;
+        public readonly double writeHigh;
 
-        public double practiceLow = set.practiceLow;
-        public double practiceLowMid = set.practiceLowMid;
-        public double practiceHighMid = set.practiceHighMid;
-        public double practiceHigh = set.practiceHigh;
+        public readonly double practiceLow;
+        public readonly double practiceLowMid;
+        public readonly double practiceHighMid;
+        public readonly double practiceHigh;
+
+        public Formula()
+        {
+            writeLow = set.writeLow;
+            writeLowMid = set.writeLowMid;
+            writeHighMid = set.writeHighMid;
+            writeHigh = set.writeHigh;
+            practiceLow = set.practiceLow;
+            practiceLowMid = set.practiceLowMid;
+            practiceHighMid = set.practiceHighMid;
+            practiceHigh = set.practiceHigh;
+        }
 
         public double WriteLow(double write)
         {
@@ -31,7 +43,7 @@ namespace SistemPakarFuzzyMamdani
             if (write <= writeLow || write >= writeHigh) x = 0;
             else if (write >= writeLow && write <= writeLowMid) x = (write - writeLow) / (writeLowMid - writeLow);
             else if (write >= writeHighMid && write <= writeHigh) x = (writeHigh - write) / (writeHigh - writeHighMid);
-            else x = 1;
+            else if (write > writeLowMid || write < writeHighMid) x = 1;
             return x;
         }
 
@@ -59,7 +71,7 @@ namespace SistemPakarFuzzyMamdani
             if (practice <= practiceLow || practice >= practiceHigh) x = 0;
             else if (practice >= practiceLow && practice <= practiceLowMid) x = (practice - practiceLow) / (practiceLowMid - practiceLow);
             else if (practice >= practiceHighMid && practice <= practiceHigh) x = (practiceHigh - practice) / (practiceHigh - practiceHighMid);
-            else x = 1;
+            else if (practice > practiceLowMid || practice < practiceHighMid) x = 1;
             return x;
         }
 
@@ -76,7 +88,7 @@ namespace SistemPakarFuzzyMamdani
         {
             double x = -1;
             if (writeLowConjunction < practiceLowConjunction) x = writeLowConjunction;
-            else x = practiceLowConjunction;
+            else if (writeLowConjunction >= practiceLowConjunction) x = practiceLowConjunction;
             return x;
         }
 
@@ -84,7 +96,7 @@ namespace SistemPakarFuzzyMamdani
         {
             double x = -1;
             if (writeLowConjunction < practiceMidConjunction) x = writeLowConjunction;
-            else x = practiceMidConjunction;
+            else if (writeLowConjunction >= practiceMidConjunction) x = practiceMidConjunction;
             return x;
         }
 
@@ -92,7 +104,7 @@ namespace SistemPakarFuzzyMamdani
         {
             double x = -1;
             if (writeMidConjunction < practiceLowConjunction) x = writeMidConjunction;
-            else x = practiceLowConjunction;
+            else if (writeMidConjunction >= practiceLowConjunction) x = practiceLowConjunction;
             return x;
         }
 
@@ -100,7 +112,7 @@ namespace SistemPakarFuzzyMamdani
         {
             double x = -1;
             if (writeMidConjunction < practiceMidConjunction) x = writeMidConjunction;
-            else x = practiceMidConjunction;
+            else if (writeMidConjunction >= practiceMidConjunction) x = practiceMidConjunction;
             return x;
         }
 
@@ -108,7 +120,7 @@ namespace SistemPakarFuzzyMamdani
         {
             double x = -1;
             if (disjunction1 > disjunction3) x = disjunction1;
-            else x = disjunction3;
+            else if (disjunction1 <= disjunction3) x = disjunction3;
             return x;
         }
 
@@ -116,7 +128,7 @@ namespace SistemPakarFuzzyMamdani
         {
             double x = -1;
             if (disjunction2 > disjunction4) x = disjunction2;
-            else x = disjunction4;
+            else if (disjunction2 <= disjunction4) x = disjunction4;
             return x;
         }
 
