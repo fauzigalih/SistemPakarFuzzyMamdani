@@ -4,7 +4,7 @@ namespace SistemPakarFuzzyMamdani
 {
     class Score
     {
-        static Setting set = new Setting();
+        static readonly Setting set = new Setting();
 
         public double TestWrite { get; set; }
         public double TestPractice { get; set; }
