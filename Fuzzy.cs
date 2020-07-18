@@ -4,8 +4,8 @@ namespace SistemPakarFuzzyMamdani
 {
     class Fuzzy
     {
-        static Formula formula = new Formula();
-        static Setting set = new Setting();
+        static readonly Formula formula = new Formula();
+        static readonly Setting set = new Setting();
 
         protected static void RunFuzzy(double write, double practice)
         {
@@ -62,13 +62,13 @@ namespace SistemPakarFuzzyMamdani
         }
 
         //Defuzzyfication
-        static double node1 = set.graduateLow;
-        static double node2 = set.graduateLow + ((set.graduateHighMid - set.graduateLow) / 2);
-        static double node3 = set.graduateHighMid;
-        static double node4 = set.graduateHighMid + ((set.graduateLowMid - set.graduateHighMid) / 2);
-        static double node5 = set.graduateLowMid;
-        static double node6 = set.graduateLowMid + ((set.graduateHigh - set.graduateLowMid) / 2);
-        static double node7 = set.graduateHigh;
+        static readonly double node1 = set.graduateLow;
+        static readonly double node2 = set.graduateLow + ((set.graduateHighMid - set.graduateLow) / 2);
+        static readonly double node3 = set.graduateHighMid;
+        static readonly double node4 = set.graduateHighMid + ((set.graduateLowMid - set.graduateHighMid) / 2);
+        static readonly double node5 = set.graduateLowMid;
+        static readonly double node6 = set.graduateLowMid + ((set.graduateHigh - set.graduateLowMid) / 2);
+        static readonly double node7 = set.graduateHigh;
 
         public static double graduateNot;
         public static double graduateYes;
